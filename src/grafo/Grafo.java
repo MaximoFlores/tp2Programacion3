@@ -13,12 +13,9 @@ public class Grafo {
 		this.vecinos = new HashMap<Integer, HashSet<Arista>>();
 	}
 
-//	public void agregarArista(int vert1, int vert2, int peso) {
-//		if(existeVertice(vert1) && existeVertice(vert2)) {
-//			this.vecinos.get(vert1).add(new Arista(vert1,vert2,peso));
-//			this.vecinos.get(vert2).add(new Arista(vert2,vert1,peso));
-//		}
-//	}
+	public Grafo(HashMap<Integer, HashSet<Arista>> vecinos) {
+		this.vecinos = vecinos;
+	}
 	
 	public void agregarArista(Arista arista) {
 		if(existeVertice(arista.getOrigen()) && existeVertice(arista.getDestino()) &&

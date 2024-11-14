@@ -1,7 +1,9 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 
@@ -11,8 +13,8 @@ import grafo.Kruskal;
 import grafo.Prim;
 
 public class GestionDeAgentes {
-	Grafo grafo;
-	HashMap<Integer, Agente> agentes;
+	private Grafo grafo;
+	private HashMap<Integer, Agente> agentes;
 	private HashSet<Observador> observadores;
 	
 	public GestionDeAgentes() {
@@ -73,7 +75,9 @@ public class GestionDeAgentes {
 	//Testear - NO SE SI FUNCIONA
 	private HashSet<Arista> listaEnlaces(Grafo grafo){
 		HashSet<Arista> ret = new HashSet<Arista>();
-		for (Arista arista1 : grafo.listaAristas()) {
+		List<Arista> aristas = grafo.listaAristas(); 
+		ret.add(aristas.get(0));
+		for (Arista arista1 : aristas) {
 			for (Arista arista2 : ret) {
 				if(!arista1.esReversa(arista2))
 					ret.add(arista1);
